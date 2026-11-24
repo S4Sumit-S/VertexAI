@@ -42,7 +42,6 @@ export const getStarredProjects = async () => {
 
 export const toggleStar = async (id) => {
 	try {
-		console.log(id);
 		const { data } = await api.patch(`/api/project/${id}`);
 		return data;
 	} catch (error) {

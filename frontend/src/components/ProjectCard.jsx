@@ -7,12 +7,12 @@ import { starProject } from "../redux/projectSlice.js";
 
 function ProjectCard({ project }) {
 	const [loadingStar, setLoadingStar] = useState(false);
-	const dispacth = useDispatch();
+	const dispatch = useDispatch();
 
 	const handleToggleStar = async () => {
 		if (!project?._id) return;
 		await toggleStar(project._id);
-		dispatchEvent(starProject(project._id));
+		dispatch(starProject(project._id));
 	};
 
 	const handleDelete = async () => {

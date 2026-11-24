@@ -15,7 +15,7 @@ const projectSlice = createSlice({
 		starProject: (state, action) => {
 			const project = state.projects.find((p) => p._id == action.payload);
 			if (project) {
-				project.starred = true;
+				project.starred = !project.starred;
 			}
 		},
 	},
