@@ -15,7 +15,7 @@ function CreateProjectModal({ openModal, onClose }) {
 		setLoading(true);
 		const data = await createProject(name, description);
 		onClose();
-		dispatch(addNewProject(data.project));
+		await dispatch(addNewProject(data.project));
 		setLoading(false);
 	};
 

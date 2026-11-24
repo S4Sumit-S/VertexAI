@@ -2,12 +2,17 @@ import React, { useState } from "react";
 import { motion } from "motion/react";
 import { Star } from "lucide-react";
 import { deleteProject, toggleStar } from "../features/project.js";
+import { useDispatch } from "react-redux";
+import { starProject } from "../redux/projectSlice.js";
 
 function ProjectCard({ project }) {
 	const [loadingStar, setLoadingStar] = useState(false);
+	const dispacth = useDispatch();
 
 	const handleToggleStar = async () => {
-		await toggleStar(project?._id);
+		if (!project?._id) return;
+		await toggleStar(project._id);
+		dispatchEvent(starProject(project._id));
 	};
 
 	const handleDelete = async () => {

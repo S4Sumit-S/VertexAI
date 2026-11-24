@@ -43,7 +43,7 @@ export const getStarredProjects = async () => {
 export const toggleStar = async (id) => {
 	try {
 		console.log(id);
-		const { data } = await api.patch(`/api/projects/${id}`);
+		const { data } = await api.patch(`/api/project/${id}`);
 		return data;
 	} catch (error) {
 		console.log(error);
@@ -53,7 +53,7 @@ export const toggleStar = async (id) => {
 
 export const deleteProject = async (id) => {
 	try {
-		const data = await api.delete(`/api/projects/${id}`);
+		const data = await api.delete(`/api/project/${id}`);
 		return data;
 	} catch (error) {
 		console.log(error);

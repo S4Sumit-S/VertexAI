@@ -9,7 +9,7 @@ import Navbar from "../components/Navbar.jsx";
 import SideBar from "../components/SideBar.jsx";
 import { Folder, Loader2, Plus } from "lucide-react";
 import { getProjects, getStarredProjects } from "../features/project.js";
-import { setProjects, setStarredProjects } from "../redux/projectSlice.js";
+import { setProjects } from "../redux/projectSlice.js";
 import ProjectCard from "../components/ProjectCard.jsx";
 import CreateProjectModal from "../components/CreateProjectModal.jsx";
 
@@ -171,7 +171,7 @@ function Dashboard() {
 						) : (
 							<div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
 								{projects.map((p, i) => (
-									<ProjectCard key={i} />
+									<ProjectCard key={p._id} project={p} />
 								))}
 							</div>
 						)}

@@ -12,9 +12,14 @@ const projectSlice = createSlice({
 		addNewProject: (state, action) => {
 			state.projects.unshift(action.payload);
 		},
+		starProject: (state, action) => {
+			const project = state.projects.find((p) => p._id == action.payload);
+			if (project) {
+				project.starred = true;
+			}
+		},
 	},
 });
 
-export const { setProjects, addNewProject, setStarredProjects } =
-	projectSlice.actions;
+export const { setProjects, addNewProject, starProject } = projectSlice.actions;
 export default projectSlice.reducer;
