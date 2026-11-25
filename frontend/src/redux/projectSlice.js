@@ -18,8 +18,16 @@ const projectSlice = createSlice({
 				project.starred = !project.starred;
 			}
 		},
+		deleteProjectFromSlice: (state, action) => {
+			state.projects = state.projects.filter((p) => p._id !== action.payload);
+		},
 	},
 });
 
-export const { setProjects, addNewProject, starProject } = projectSlice.actions;
+export const {
+	setProjects,
+	addNewProject,
+	starProject,
+	deleteProjectFromSlice,
+} = projectSlice.actions;
 export default projectSlice.reducer;
